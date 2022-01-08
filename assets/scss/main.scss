@@ -1,0 +1,57 @@
+@import './reset';
+@import './global/variables';
+@import './global/fonts';
+@import './global/mixins';
+@import './layout/sidebar.scss';
+@import './layout/content.scss';
+@import './layout/playingbar.scss';
+@import './layout/header.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 400;
+  font-size: $font-size;
+  color: $text-color;
+  line-height: 1.5;
+  background: $background-color;
+}
+
+input {
+  font-size: inherit;
+}
+
+hr {
+  color: #aab2bd;
+}
+
+/* FIXME: move it somewhere else */
+.transition-enter-active,
+.transition-leave-active {
+  transition: opacity 0.3s;
+}
+.transition-enter,
+.transition-leave-active {
+  opacity: 0;
+}
+
+a {
+  color: $secondary;
+
+  &:hover {
+    color: darken($secondary, 10%);
+  }
+}
+
+p {
+  word-break: break-word;
+}

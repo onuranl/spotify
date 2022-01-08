@@ -1,0 +1,39 @@
+.header {
+  padding: 16px 32px;
+  position: fixed;
+  top: 0;
+  &-button {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-flex;
+    height: 32px;
+    justify-content: center;
+    position: relative;
+    width: 32px;
+  }
+  &_user {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 0;
+    border-radius: 23px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    height: 32px;
+    justify-content: center;
+    margin-inline-start: 16px;
+    padding: 2px;
+    position: relative;
+    &-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: normal;
+      line-height: 16px;
+      text-transform: none;
+    }
+  }
+}
