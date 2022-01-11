@@ -1,12 +1,12 @@
 <template>
   <div class="h-100">
-    <div class="row mr-0">
-      <div class="col-lg-2">
+    <div class="d-flex">
+      <div>
         <Sidebar />
       </div>
-      <div class="content col-lg-10 p-0">
+      <div class="content">
         <Header />
-        <Nuxt />
+        <Nuxt class="app" />
       </div>
     </div>
     <PlayingBar class="playingbar" />
@@ -23,4 +23,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.app {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+</style>

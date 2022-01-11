@@ -1,8 +1,8 @@
 <template>
-  <div class="header d-flex">
+  <div class="header d-flex justify-content-between">
     <!-- fıx me -->
     <div class="d-flex">
-      <button class="header-button mr-3">
+      <button @click="goBack" class="header-button">
         <svg
           role="img"
           focusable="false"
@@ -17,7 +17,7 @@
           ></polyline>
         </svg>
       </button>
-      <button class="header-button">
+      <button @click="goForward" class="header-button">
         <svg
           role="img"
           focusable="false"
@@ -47,11 +47,14 @@
 </template>
 
 <script>
-import { ChevronDownIcon } from 'vue-feather-icons'
-
 export default {
-  components: {
-    ChevronDownIcon,
+  methods: {
+    goBack() {
+      window.history.back()
+    },
+    goForward() {
+      window.history.forward()
+    },
   },
 }
 </script>

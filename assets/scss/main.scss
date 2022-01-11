@@ -19,11 +19,14 @@ body {
   width: 100%;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-  font-weight: 400;
+  font-weight: 700;
   font-size: $font-size;
   color: $text-color;
-  line-height: 1.5;
   background: $background-color;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-transform: none;
+  overflow: hidden;
 }
 
 input {
@@ -45,13 +48,42 @@ hr {
 }
 
 a {
-  color: $secondary;
+  color: $white;
 
   &:hover {
-    color: darken($secondary, 10%);
+    color: $white;
   }
 }
 
 p {
   word-break: break-word;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 8.494%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  transition: background-color 0.2s;
+  height: 100%;
+  pointer-events: auto;
+  width: 100%;
+  border: none !important;
+  padding: 0 !important;
+  position: relative;
+  margin: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
