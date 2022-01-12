@@ -5,7 +5,193 @@
   height: 100px;
   width: 100%;
   color: white;
-  text-align: center;
   background: #282828;
   box-shadow: 0px -1px 0px #000000;
+  padding: 0 16px;
+  border-top: 1px solid #282828;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 180px;
+    &-name {
+      column-gap: 8px;
+      display: grid;
+      margin: 0 14px;
+      align-items: center;
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      &-track {
+        margin: 0px;
+      }
+      &-artist {
+        color: #b3b3b3;
+        span {
+          font-size: 11px;
+          font-weight: 400;
+          letter-spacing: normal;
+          line-height: 16px;
+          text-transform: none;
+        }
+      }
+    }
+    &-like {
+      margin-left: 16px;
+      button {
+        color: #b3b3b3;
+        border: none;
+        background: transparent;
+        display: flex;
+        padding: 0px;
+        &:hover {
+          color: #fff;
+          fill: #fff;
+        }
+      }
+    }
+  }
+  &_player-controls {
+    width: 40%;
+
+    &_buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: row nowrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      width: 100%;
+      button {
+        border: none;
+      }
+    }
+    &_left,
+    &_right {
+      display: flex;
+      button {
+        align-items: center;
+        background: transparent;
+        border: none;
+        color: #b3b3b3;
+        display: flex;
+        height: 32px;
+        justify-content: center;
+        min-width: 32px;
+        position: relative;
+        width: 32px;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+    &_playpause {
+      align-items: center;
+      background-color: #fff;
+      border: none;
+      border-radius: 32px;
+      color: #000;
+      display: flex;
+      height: 32px;
+      justify-content: center;
+      min-width: 32px;
+      position: relative;
+      width: 32px;
+      &:hover,
+      &:focus {
+        transform: scale(1.06);
+        transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
+        transition-property: all;
+      }
+    }
+    &_playback-bar {
+      flex-direction: row;
+      gap: 8px;
+      justify-content: space-between;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      &_time_left,
+      &_time_right {
+        min-width: 40px;
+        text-align: right;
+        color: rgb(179, 179, 179);
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 16px;
+        text-transform: none;
+      }
+      &_time_right {
+        text-align: left;
+      }
+      .progress {
+        background: #535353;
+        border-radius: 2px;
+        height: 4px;
+        width: 100%;
+        &-bar {
+          background: #b3b3b3;
+        }
+        &:hover {
+          .progress-bar {
+            background: #1db954;
+          }
+        }
+      }
+    }
+  }
+  &_extra-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &_content {
+      display: flex;
+      &_button {
+        background-color: transparent;
+        border: none;
+        color: #b3b3b3;
+        height: 32px;
+        min-width: 32px;
+        width: 32px;
+        &:hover {
+          color: white;
+        }
+      }
+      &_volume-bar {
+        align-items: center;
+        display: flex;
+        flex: 0 1 125px;
+        &:hover {
+          .progress {
+            &:hover {
+              .progress-bar {
+                background: #1db954;
+              }
+            }
+          }
+        }
+        .progress {
+          background: #535353;
+          border-radius: 2px;
+          height: 4px;
+          width: 93px;
+          &-bar {
+            background: #b3b3b3;
+          }
+          &:hover {
+            .progress-bar {
+              background: #1db954;
+            }
+          }
+        }
+      }
+    }
+  }
 }

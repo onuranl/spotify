@@ -9,7 +9,7 @@
         <Nuxt class="app" />
       </div>
     </div>
-    <PlayingBar class="playingbar" />
+    <PlayingBar />
   </div>
 </template>
 
