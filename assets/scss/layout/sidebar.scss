@@ -159,9 +159,18 @@
           }
         }
         &-item {
+          opacity: 0.5;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          font-size: 14px;
+          font-weight: 400;
+          letter-spacing: normal;
+          line-height: 20px;
+          text-transform: none;
+          &:hover {
+            opacity: 1;
+          }
         }
       }
     }
