@@ -172,13 +172,13 @@
       <div class="position-relative">
         <hr class="sidebar_content-line" />
       </div>
-      <div class="sidebar_content-playlists">
+      <div v-if="playlists" class="sidebar_content-playlists">
         <div class="sidebar_content-playlists-content">
           <ul>
-            <li v-for="index in 13" :key="index">
+            <li v-for="(playlist, index) in playlists" :key="index">
               <div class="sidebar_content-playlists-content-item">
                 <nuxt-link to="/">
-                  <span>asdasasdasdasdasdasdsadassadasdasdas</span>
+                  <span>{{ playlist.name }} </span>
                 </nuxt-link>
               </div>
             </li>
@@ -190,7 +190,25 @@
 </template>
 
 <script>
-export default {}
+import { mapState, mapActions } from 'vuex'
+
+export default {
+  data() {
+    return {
+      playlists: [],
+    }
+  },
+  async fetch() {
+    await this.getPlaylists().then(() => {
+      this.playlists = this.$store.state.modules.playlist.currentUserPlaylists
+    })
+  },
+  methods: {
+    ...mapActions({
+      getPlaylists: 'modules/playlist/getCurrentUserPlaylists',
+    }),
+  },
+}
 </script>
 
 <style></style>

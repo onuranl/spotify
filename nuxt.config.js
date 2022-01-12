@@ -34,10 +34,13 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://api.spotify.com/v1/',
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
