@@ -1,9 +1,10 @@
 <template>
-  <div>tracks</div>
+  <playlist />
 </template>
 
 <script>
-export default {}
+import Playlist from '~/components/shared/Playlist.vue'
+export default {
+  components: { Playlist },
+}
 </script>
-
-<style></style>

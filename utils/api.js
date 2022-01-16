@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const api = async (method, endpoint) => {
+export default async (method, endpoint) => {
   const baseURL = 'https://api.spotify.com/v1/' + endpoint
   return await axios[method](baseURL, {
     headers: {
@@ -9,5 +9,3 @@ const api = async (method, endpoint) => {
     },
   })
 }
-
-export default api

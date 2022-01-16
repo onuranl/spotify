@@ -44,7 +44,7 @@
           class="header_user"
           :style="[dropdown ? { background: '#282828' } : '']"
         >
-          <b-avatar size="28px"></b-avatar>
+          <s-avatar size="28px" />
           <span class="header_user-name">onur3553</span>
           <!-- fıx me -->
           <div class="mr-1">
@@ -85,7 +85,9 @@
 </template>
 
 <script>
+import SAvatar from '~/components/common/SAvatar.vue'
 export default {
+  components: { SAvatar },
   data() {
     return {
       dropdown: false,

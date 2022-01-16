@@ -6,7 +6,7 @@
       </div>
       <div class="content">
         <Header />
-        <Nuxt class="app" />
+        <Nuxt />
       </div>
     </div>
     <PlayingBar />
@@ -22,10 +22,3 @@ export default {
   components: { Sidebar, Header, PlayingBar },
 }
 </script>
-
-<style lang="scss" scoped>
-.app {
-  margin-top: 64px;
-  margin-bottom: 64px;
-}
-</style>

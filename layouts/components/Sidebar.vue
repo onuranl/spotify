@@ -177,7 +177,7 @@
           <ul>
             <li v-for="(playlist, index) in playlists" :key="index">
               <div class="sidebar_content-playlists-content-item">
-                <nuxt-link to="/">
+                <nuxt-link :to="`/playlist/${playlist.id}`">
                   <span>{{ playlist.name }} </span>
                 </nuxt-link>
               </div>
@@ -190,7 +190,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data() {

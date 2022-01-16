@@ -75,9 +75,6 @@ export default {
       default: false,
     },
   },
-  created() {
-    console.log('asd', this.horizontal)
-  },
 }
 </script>
 
