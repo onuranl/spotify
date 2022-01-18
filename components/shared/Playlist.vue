@@ -3,7 +3,13 @@
     <div class="playlist-page_top">
       <div
         class="playlist-page_top-background"
-        style="background-color: rgb(80, 56, 160)"
+        :style="[
+          backgroundColor
+            ? {
+                'background-color': `rgb(${backgroundColor.x}, ${backgroundColor.y}, ${backgroundColor.z})`,
+              }
+            : '',
+        ]"
       ></div>
       <div
         class="playlist-page_top-background"
@@ -33,8 +39,17 @@
         </div>
       </div>
     </div>
-    <div class="playlist-page-background"></div>
-    <div class="playlist-page_play-button">
+    <div
+      class="playlist-page-background"
+      :style="[
+        backgroundColor
+          ? {
+              'background-color': `rgb(${backgroundColor.x}, ${backgroundColor.y}, ${backgroundColor.z})`,
+            }
+          : '',
+      ]"
+    ></div>
+    <div class="playlist-page_play-button" id="scroll">
       <div>
         <button>play button</button>
       </div>
@@ -48,10 +63,14 @@
 <script>
 import SAvatar from '~/components/common/SAvatar.vue'
 import STable from '~/components/common/STable.vue'
+
+import { mapState } from 'vuex'
+
 export default {
   components: { SAvatar, STable },
   props: {
     detail: {},
   },
+  computed: mapState(['backgroundColor']),
 }
 </script>

@@ -1,17 +1,29 @@
 <template>
   <table v-if="items" class="table table-borderless">
-    <thead>
+    <thead
+      :style="[
+        scrollPosition && scrollPosition > 380
+          ? {
+              background: '#181818',
+              'border-bottom': '1px solid rgba(255,255,255,.1)',
+              'box-shadow': '0 -1px 0 0 #181818',
+            }
+          : '',
+      ]"
+    >
       <tr>
-        <th scope="col" class="text-center">#</th>
-        <th scope="col">Başlık</th>
-        <th scope="col">Albüm</th>
-        <th scope="col">Tarih Eklendi</th>
-        <th
-          scope="col"
-          class="d-flex justify-content-end"
-          style="margin-right: 32px"
-        >
-          <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+        <th scope="col" class="text-center" style="width: 5%">#</th>
+        <th scope="col" style="width: 30%">Başlık</th>
+        <th scope="col" style="width: 20%">Albüm</th>
+        <th scope="col" style="width: 15%">Tarih Eklendi</th>
+        <th scope="col" class="text-right" style="width: 10%">
+          <svg
+            role="img"
+            style="margin-right: 32px"
+            height="16"
+            width="16"
+            viewBox="0 0 16 16"
+          >
             <path
               d="M7.999 3h-1v5h3V7h-2V3zM7.5 0a7.5 7.5 0 100 15 7.5 7.5 0 000-15zm0 14C3.916 14 1 11.084 1 7.5S3.916 1 7.5 1 14 3.916 14 7.5 11.084 14 7.5 14z"
             ></path>
@@ -24,7 +36,7 @@
       <tr v-for="(item, index) in items" :key="index">
         <th scope="row" class="text-center">
           <div style="margin-top: 12px">
-            <span>{{ index }}</span>
+            <span style="color: #b3b3b3">{{ index }}</span>
           </div>
         </th>
         <td class="d-flex align-items-center justify-self-start">
@@ -50,8 +62,11 @@
             {{ $moment(item.added_at).fromNow() }}
           </p>
         </td>
-        <td class="d-flex justify-content-end" style="margin-right: 32px">
-          <div class="d-flex" style="position: absolute; bottom: 12px">
+        <td>
+          <div
+            class="d-flex justify-content-end"
+            style="margin-top: 12px; margin-right: 30px"
+          >
             <div style="margin-right: 16px">
               <svg
                 role="img"
@@ -66,7 +81,7 @@
                 ></path>
               </svg>
             </div>
-            <p class="sub-title">
+            <p class="sub-title" style="min-width: 36px">
               {{ millisToMinutesAndSeconds(item.track.duration_ms) }}
             </p>
           </div>
@@ -77,7 +92,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
+  props: {
+    items: [],
+  },
+  computed: mapState(['scrollPosition']),
   methods: {
     millisToMinutesAndSeconds(millis) {
       var minutes = Math.floor(millis / 60000)
@@ -85,10 +106,5 @@ export default {
       return minutes + ':' + (seconds < 10 ? '0' : '') + seconds
     },
   },
-  props: {
-    items: [],
-  },
 }
 </script>
-
-<style></style>

@@ -1,7 +1,19 @@
 <template>
   <div>
-    <div class="header d-flex justify-content-between">
-      <!-- fıx me -->
+    <div
+      class="header d-flex justify-content-between"
+      :style="[
+        backgroundColor
+          ? {
+              'background-color': `rgb(${backgroundColor.x}, ${
+                backgroundColor.y
+              }, ${backgroundColor.z}, ${
+                scrollPosition ? 0 + scrollPosition / 300 : ''
+              } )`,
+            }
+          : '',
+      ]"
+    >
       <div class="d-flex">
         <button @click="goBack" class="header-button">
           <svg
@@ -46,7 +58,6 @@
         >
           <s-avatar size="28px" />
           <span class="header_user-name">onur3553</span>
-          <!-- fıx me -->
           <div class="mr-1">
             <svg role="img" height="16" width="16" viewBox="0 0 16 16">
               <path d="M3 6l5 5.794L13 6z"></path>
@@ -86,6 +97,9 @@
 
 <script>
 import SAvatar from '~/components/common/SAvatar.vue'
+
+import { mapState } from 'vuex'
+
 export default {
   components: { SAvatar },
   data() {
@@ -101,5 +115,6 @@ export default {
       window.history.forward()
     },
   },
+  computed: mapState(['scrollPosition', 'backgroundColor']),
 }
 </script>

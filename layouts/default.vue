@@ -4,7 +4,7 @@
       <div>
         <Sidebar />
       </div>
-      <div class="content">
+      <div id="content" class="content" @scroll="getScrollPosition()">
         <Header />
         <Nuxt />
       </div>
@@ -18,7 +18,22 @@ import Sidebar from './components/Sidebar.vue'
 import Header from './components/Header.vue'
 import PlayingBar from './components/PlayingBar.vue'
 
+import { mapMutations, mapActions } from 'vuex'
+
 export default {
   components: { Sidebar, Header, PlayingBar },
+  fetch() {
+    this.getRandomColor()
+  },
+  methods: {
+    ...mapActions(['getRandomColor']),
+    ...mapMutations(['setScrollPosition']),
+    getScrollPosition() {
+      var element = document.getElementById('content')
+      if (element.scrollTop < 600) {
+        this.setScrollPosition(element.scrollTop)
+      }
+    },
+  },
 }
 </script>
