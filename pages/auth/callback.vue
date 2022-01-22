@@ -5,19 +5,13 @@
 <script>
 export default {
   layout: 'login',
-  middleware({ store, redirect, route }) {
-    if (route.query.code) {
-      store.commit('modules/auth/setCode', route.query.code)
-      store
-        .dispatch('modules/auth/initUser')
-        .then(() => {
-          redirect({ path: '/' })
-        })
-        .catch(() => {
-          redirect('/auth')
-        })
+  async created() {
+    if (this.$route.query.code) {
+      this.$store.commit('modules/auth/setCode', this.$route.query.code)
+      await this.$store.dispatch('modules/auth/initUser')
+      await this.$router.push('/')
     } else {
-      redirect('/auth')
+      this.$router.push('/auth')
     }
   },
 }

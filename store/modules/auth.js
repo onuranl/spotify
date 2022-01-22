@@ -55,13 +55,13 @@ const auth = {
             json: true,
           }
         )
-        .then((res) => {
+        .then(async (res) => {
           if (res.status === 200) {
             process.env.TOKEN = res.data.access_token
             commit('setTokens', res.data)
-            dispatch('modules/user/getCurrentUser', '', { root: true })
 
-            dispatch('modules/playlist/getCurrentUserPlaylists', '', {
+            await dispatch('modules/user/getCurrentUser', '', { root: true })
+            await dispatch('modules/playlist/getCurrentUserPlaylists', '', {
               root: true,
             })
           } else {
