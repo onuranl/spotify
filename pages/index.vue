@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <s-card />
+    <!-- <p v-if="$store.state.modules.user.currentUser">
+      {{ $store.store.state.modules.user.currentUser }}
+    </p> -->
   </div>
 </template>
 

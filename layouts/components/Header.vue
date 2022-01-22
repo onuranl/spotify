@@ -53,11 +53,12 @@
         tabindex="0"
       >
         <div
+          v-if="currentUser"
           class="header_user"
           :style="[dropdown ? { background: '#282828' } : '']"
         >
-          <s-avatar size="28px" />
-          <span class="header_user-name">onur3553</span>
+          <s-avatar :src="currentUser.images[0].url" size="28px" />
+          <span class="header_user-name">{{ currentUser.display_name }} </span>
           <div class="mr-1">
             <svg role="img" height="16" width="16" viewBox="0 0 16 16">
               <path d="M3 6l5 5.794L13 6z"></path>
@@ -98,7 +99,7 @@
 <script>
 import SAvatar from '~/components/common/SAvatar.vue'
 
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   components: { SAvatar },
@@ -115,6 +116,11 @@ export default {
       window.history.forward()
     },
   },
-  computed: mapState(['scrollPosition', 'backgroundColor']),
+  computed: {
+    ...mapState(['scrollPosition', 'backgroundColor']),
+    ...mapGetters({
+      currentUser: 'modules/user/currentUser',
+    }),
+  },
 }
 </script>

@@ -7,6 +7,9 @@ const playlist = {
     playlistID: '',
     playlistDetail: {},
   },
+  getters: {
+    currentUserPlaylists: (state) => state.currentUserPlaylists,
+  },
   mutations: {
     setCurrentUserPlaylists(state, data) {
       state.currentUserPlaylists = data
@@ -21,11 +24,15 @@ const playlist = {
   actions: {
     async getCurrentUserPlaylists({ commit }) {
       const result = await request('get', 'me/playlists')
-      commit('setCurrentUserPlaylists', result.data.items)
+      if (result.status === 200) {
+        commit('setCurrentUserPlaylists', result.data.items)
+      }
     },
     async getPlaylistDetail({ state, commit }) {
       const result = await request('get', 'playlists/' + state.playlistID)
-      commit('setPlaylistDetail', result.data)
+      if (result.status === 200) {
+        commit('setPlaylistDetail', result.data)
+      }
     },
   },
 }

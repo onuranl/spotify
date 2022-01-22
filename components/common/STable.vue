@@ -36,7 +36,7 @@
       <tr v-for="(item, index) in items" :key="index">
         <th scope="row" class="text-center">
           <div style="margin-top: 12px">
-            <span style="color: #b3b3b3">{{ index }}</span>
+            <span style="color: #b3b3b3">{{ index + 1 }}</span>
           </div>
         </th>
         <td class="d-flex align-items-center justify-self-start">

@@ -1,5 +1,5 @@
 <template>
-  <b-avatar :size="size"></b-avatar>
+  <b-avatar :src="src" :size="size"></b-avatar>
 </template>
 
 <script>
@@ -8,6 +8,10 @@ export default {
     size: {
       type: String,
       default: '28px',
+    },
+    src: {
+      type: String,
+      default: '',
     },
   },
 }

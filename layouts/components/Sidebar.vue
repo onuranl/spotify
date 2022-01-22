@@ -190,25 +190,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      playlists: [],
-    }
-  },
-  async fetch() {
-    await this.getPlaylists().then(() => {
-      this.playlists = this.$store.state.modules.playlist.currentUserPlaylists
-    })
-  },
-  methods: {
-    ...mapActions({
-      getPlaylists: 'modules/playlist/getCurrentUserPlaylists',
+  computed: {
+    ...mapGetters({
+      playlists: 'modules/playlist/currentUserPlaylists',
     }),
   },
 }
 </script>
-
-<style></style>
